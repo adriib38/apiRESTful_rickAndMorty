@@ -1,0 +1,42 @@
+
+#cabecera {
+    background-color: rgb(255, 255, 110);
+    padding: 30px;
+    display: flex;
+}
+
+#cabecera > a, input {
+    margin-right: 10px;
+}
+
+#cards-projects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: var(--blanco);
+    width: 270px;
+    padding: 30px;
+    font-family: Lato;
+    border-radius: 4px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 4px blue solid;
+}
+
+.card-body h5 {
+    font-size: 1.3em;
+}
+
+.card-body {
+    margin-bottom: 40px;
+}
+
+.Alive {
+    color: green;
+}
+
+.Dead {
+    color: red;
+}
