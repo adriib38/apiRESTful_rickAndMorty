@@ -1,8 +1,8 @@
 <div id="cabecera">
-    <a href="index.php?personaje=rick">Rick</a>
-    <a href="index.php?personaje=morty">Morty</a>
+    <a href="index.php?name=rick">Rick</a>
+    <a href="index.php?name=morty">Morty</a>
     <form action="index.php">
-        <input type="text" name="personaje" placeholder="personaje">
+        <input type="text" name="name" placeholder="personaje">
         <input type="submit" value="Buscar">
     </form>
 </div>

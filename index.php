@@ -1,6 +1,17 @@
 <?php
+    $pagina = 1;
+    if(!isset($_GET['page'])){
+        $pagina = 1;
+    }else{
+        $pagina = $_GET['page'];
+    } 
 
-    $endpoint = 'https://rickandmortyapi.com/api/character/?name='.$_GET['personaje'].'';
+    if(isset($_GET['name'])){
+        $endpoint = 'https://rickandmortyapi.com/api/character/?name='.$_GET['name'].'&page='.$pagina.'';
+    }else{
+        $endpoint = 'https://rickandmortyapi.com/api/character';
+    }
+
     $data = file_get_contents($endpoint);
     $data = json_decode($data);
     $data = $data->results;
@@ -18,11 +29,37 @@
     <body>
         <?php include('inc/cabecera.inc.php'); ?>
 
+        <div>
+            <?php 
+            if(isset($_GET['page'])){
+                $pagina = $_GET['page'] + 1;
+            }else{
+                $pagina = 1;
+            }
+
+            echo '<a href="/apiRestFul_rym_AdrianBenitez/index.php?name='.$_GET['name'].'&page='.$pagina.'">Siguiente página</a>';
+            
+            ?>
+        </div>
+
+        <div>
+            <?php 
+            if(isset($_GET['page'])){
+                if($pagina >= 2){
+                    $pagina = $_GET['page'] - 1;
+                }  
+            }else{
+                $pagina = 0;
+            }
+                echo '<a href="/apiRestFul_rym_AdrianBenitez/index.php?name='.$_GET['name'].'&page='.$pagina.'">Anterior página</a>';
+            ?>
+        </div>
+
         <div id="cards-projects">
             <?php foreach($data as $character){ ?>
 
                 <div id="<?=$character->name ?>" class="project-card" data-aos="flip-up">
-                    <img src="<?=$character->image ?>" title="EcoMapsValència" width="270px">
+                    <img src="<?=$character->image ?>" width="270px">
                     <div class="card-body">
                         <h5><?=$character->name ?></h5>
                     </div>
@@ -31,7 +68,6 @@
                     </a>
                 </div>
 
-      
             <?php } ?>
         </div>
     </body>

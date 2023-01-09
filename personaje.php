@@ -1,5 +1,6 @@
 <?php
 
+
     $endpoint = 'https://rickandmortyapi.com/api/character/'.$_GET['id'].'';
     $data = file_get_contents($endpoint);
     $data = json_decode($data);
@@ -15,6 +16,9 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
     <body>
+        <!--
+            https://rickandmortyapi.com/api/character/?name=morty&page=2
+        -->
 
         <?php include('inc/cabecera.inc.php'); ?>
 
